@@ -1,0 +1,52 @@
+    Codigo do alarme Detector de Presença.
+    
+    int frequencia= 0 //inicializa variável de frequencia em 0.
+    int buzzer = 13; // inicializa buzzer no pino 13;
+    int duration, distance; //inicializa variavel de distancia e tempo.
+    
+    void setup(){
+    serial.begin(9600);
+    pinMode(trigPin,OUTPUT);
+    pinMode(echoPin,INPUT);
+    pinMode(Buzzer, OUTPUT);
+    }
+    
+    void loop(){
+    digitalWrite(trigPing,HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin,LOW);
+    duration=pulsenIn, HIGH);
+    distance=(duration/1)/29.1;//Define base do  calculo de convenção.    
+    }
+    
+    if(distance >=40 || distance <= 0){
+    serial.println("Alarme disparado");
+    digitalWrite(Buzzer,LOW);
+    }
+
+    else{
+    Serial.print("Pessoa Detectada");
+    Serial.print("Distância=");
+    Serial.print(distance); //imprime o valor da distancia no monitor serial 
+   
+    for(frequencia = 150; frequencia < 1800; frequencia +=1){//tone que produz sirene de policia 
+    tone(Buzzer, frequencia, tempo);
+    delay(3);
+    
+    for(frequencia=1800; frequencia > 150; frequencia -=1){//tone que produz sirene de política
+    tone(Buzzer, frequencia, tempo);
+    delay(3);    
+    }
+    }
+    }
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
